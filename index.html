@@ -1,0 +1,264 @@
+<!-- EJ 04-06
+Realizamos el ejercicio del vídeo: https://www.youtube.com/watch?v=6qko7Nbe8YA
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+	<title>Flexbox vs CSS Grid 
+        Ignacio Aguayo
+    </title>
+
+
+    <style>
+        * {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+
+	background: #1D202B;
+	color: #fff;
+	font-family: 'Roboto', sans-serif;
+    min-height: 100vh;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+
+}
+
+.contenedor {
+	width: 90%;
+	max-width: 1200px;
+	margin: auto;
+	padding: 40px 0;
+
+    /*grid*/
+
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 20px;
+
+
+
+
+    /* FLEXBOX
+    display: flex;
+	gap: 20px;
+    */
+}
+
+.titulo {
+	font-size: 24px;
+	padding: 20px 0;
+}
+
+.contenedor-conciertos {
+
+    /*GRID*/
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+
+
+    /* FLEX BOX
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    */
+}
+
+.card {
+	border-radius: 10px;
+	min-height: 200px;
+	font-weight: bold;
+	padding: 20px;
+	position: relative;
+	overflow: hidden;
+	background-size: cover;
+	background-position: center center;
+
+    /* FLEXBOX
+	width: calc(33.33% - 20px);
+    */
+
+}
+
+.card .textos {
+	height: 100%;
+
+    /* FLEXBOX */
+	display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+	
+
+     /*GRID*/
+    /* display: grid;
+    grid-template-rows: 1fr auto;
+*/
+
+}
+
+.banner {
+	border-radius: 10px;
+	text-align: center;
+	padding: 20px;
+	background-size: cover;
+	background-position: center center;
+    
+     /* FLEXBOX */
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+
+    /*GRID*/ /*
+    display: grid;
+    grid-template-rows: auto auto auto;
+    align-items: center; */
+   
+}
+
+.banner ul {
+	list-style: none;
+}
+
+.banner ul li {
+	margin: 15px;
+	font-weight: bold;
+}
+
+.banner .boton {
+	background: #FFD600;
+	display: block;
+	width: 100%;
+	font-weight: bold;
+	font-size: 14px;
+	text-align: center;
+	padding: 10px;
+	border: none;
+	border-radius: 100px;
+	font-family: 'Roboto', sans-serif;
+	cursor: pointer;
+}
+
+@media screen and (max-width: 900px) {
+
+    .contenedor{
+        grid-template-columns: 1fr;
+    }
+
+    .contenedor-conciertos{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card, .banner {
+        width: 100%;
+    }
+
+    .banner{
+        grid-row: 1;
+        grid-column: 3;
+
+    }
+
+}
+
+@media screen and (max-width: 700px) {
+	
+    .contenedor-conciertos{
+        grid-template-columns: 1fr;
+    }
+
+    .banner {
+        grid-row: 1;
+        grid-column: 2;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+
+    .contenedor-conciertos{
+        grid-template-columns: 1fr;
+    }
+
+    .banner {
+        grid-row: 2;
+        grid-column: 1;
+    }
+
+}
+
+
+    </style>
+</head>
+<body>
+	<div class="contenedor">
+		<div class="contenedor-conciertos">
+			<div class="card" style="background-image: url('./img/1.jpg')">
+				<div class="textos">
+					<h3>Rock In Rio</h3>
+					<p>27 de Octubre 2021</p>
+				</div>
+			</div>
+			<div class="card" style="background-image: url('./img/2.jpg')">
+				<div class="textos">
+					<h3>FalconMasters’ Concert</h3>
+					<p>12 de Noviembre 2021</p>
+				</div>
+			</div>
+			<div class="card" style="background-image: url('./img/3.jpg')">
+				<div class="textos">
+					<h3>Coachella</h3>
+					<p>13 de Diciembre 2021</p>
+				</div>
+			</div>
+
+			<div class="card" style="background-image: url('./img/4.jpg')">
+				<div class="textos">
+					<h3>US Festival</h3>
+					<p>20 de Diciembre 2021</p>
+				</div>
+			</div>
+			<div class="card" style="background-image: url('./img/5.jpg')">
+				<div class="textos">
+					<h3>Altamont Speedway</h3>
+					<p>27 de Diciembre 2021</p>
+				</div>
+			</div>
+			<div class="card" style="background-image: url('./img/6.jpg')">
+				<div class="textos">
+					<h3>Rock In Rio Again</h3>
+					<p>1 de Enero 2021</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="banner" style="background-image: url('./img/banner.jpg')">
+			<h3>Rock Legends 2021</h3>
+			<ul>
+				<li>Guns N' Roses</li>
+				<li>AC/DC</li>
+				<li>Motley Crue</li>
+				<li>The Cult</li>
+				<li>Poison</li>
+				<li>Def Leppard</li>
+			</ul>
+			<button class="boton">Comprar Boletos</button>
+		</div>
+	</div>
+</body>
+</html>
